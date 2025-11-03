@@ -6,7 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
 import uploadRoutes from "./routes/upload.js";
-import chartRoutes from "./routes/Chart.js";
+import chartRoutes from "./routes/chart.js";
 import userRoutes from "./routes/users.js";
 
 // ES Module equivalent for __dirname
