@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import axios from 'axios';
+import API from '../api';
 import { useNavigate } from 'react-router-dom';
 import { Bar, Line, Pie } from "react-chartjs-2";
 import {
@@ -29,7 +29,7 @@ export default function AdminDashboard() {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/api/users', {
+        const res = await API.get('/api/users', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(res.data);
@@ -46,7 +46,7 @@ export default function AdminDashboard() {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/chart/history/${historyId}`,
+      await API.delete(`/api/chart/history/${historyId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       // Remove the deleted item from the state to update the UI
@@ -82,7 +82,7 @@ export default function AdminDashboard() {
     const historyId = currentItem._id;
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.put(`http://localhost:5000/api/chart/history/${historyId}`,
+      const res = await API.put(`/api/chart/history/${historyId}`,
         editFormData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -98,7 +98,7 @@ export default function AdminDashboard() {
   const handleViewUserHistory = async (user) => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get(`http://localhost:5000/api/chart/history/user/${user._id}`, {
+      const res = await API.get(`/api/chart/history/user/${user._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUserHistory(res.data);

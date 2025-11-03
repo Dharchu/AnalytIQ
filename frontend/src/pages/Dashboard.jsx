@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import API from "../api";
 import * as XLSX from "xlsx";
 import { Bar, Line, Pie } from "react-chartjs-2";
 import {
@@ -80,7 +81,7 @@ export default function Dashboard() {
       // --- Save analysis to history ---
       const token = localStorage.getItem("token");
       if (token) {
-        axios.post("http://localhost:5000/api/chart/history",
+        API.post("/api/chart/history",
           { fileName, xAxis, yAxis, chartType, data },
           { headers: { Authorization: `Bearer ${token}` } }
         ).then(res => {
@@ -162,7 +163,7 @@ export default function Dashboard() {
         return;
       }
       try {
-        const res = await axios.get("http://localhost:5000/api/chart/history", {
+        const res = await API.get("/api/chart/history", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setHistory(res.data);
