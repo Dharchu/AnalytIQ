@@ -29,7 +29,7 @@ if (!process.env.JWT_SECRET) {
 }
 app.use("/api/auth", authRoutes);
 app.use("/api/upload", uploadRoutes);
-app.use("/api/chart", chartRoutes);
+app.use("/api/Chart", chartRoutes);
 app.use("/api/users", userRoutes);
 
 // Start server
