@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import authRoutes from "./routes/auth.js";
 import uploadRoutes from "./routes/upload.js";
-import chartRoutes from "./routes/Chart.js";
+import chartRoutes from "./routes/chart.js";
 import userRoutes from "./routes/users.js";
 
 dotenv.config();
