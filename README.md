@@ -1,5 +1,7 @@
 # AnalytIQ - Excel Analytics Platform
 
+**Live Demo**: [https://analytiq-app.onrender.com](https://analytiq-app.onrender.com)
+
 A powerful MERN stack platform for uploading any Excel file (.xls or .xlsx), analyzing the data, and generating interactive 2D charts. Users can select X and Y axes from the column headers of the Excel file, choose chart types, and generate downloadable graphs.
 
 ## Key Features
@@ -54,12 +56,23 @@ npm install
 
 ### 3. Create an Admin User (Required for Admin Dashboard)
 
-**Important**: For security, admin users are not created through the public signup page.
+**Important**: For security reasons, there are no default admin credentials. You must create an admin user manually by following these steps. This prevents shipping default credentials in a production environment.
 
 1.  **Sign up** for a new account through the application's regular signup page.
-2.  **Connect** to your MongoDB database using a tool like MongoDB Compass.
+2.  **Connect** to your MongoDB database using a tool like MongoDB Compass or the `mongo` shell.
 3.  Navigate to the `users` collection and find the user you just created.
 4.  **Edit** the user's document and change the `role` field from `"user"` to `"admin"`.
+
+After completing these steps, you can log in with the email and password you signed up with to access the admin dashboard.
+
+#### Sample Admin Credentials (For Local Demo)
+
+For a quick local demonstration, you can use the following credentials. You must first create this user through the signup page and then promote them to an admin in the database as described above.
+
+-   **Username**: `Admin`
+-   **Password**: `admin123`
+
+**Security Warning**: These credentials are for local testing and demonstration only. Do not use them in a production environment. Always follow the secure practice of creating your own unique admin user for any real deployment.
 
 ### 4. Run the Application
 
